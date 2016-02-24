@@ -1,0 +1,106 @@
+.ui-layout-grids-guide
+{
+    display: none;
+    position: absolute;
+
+    .ui-layout-grids-guides-visible & {
+        display: block;
+    }
+}
+
+.ui-layout-grids-guides-toggle {
+    background: rgba(0, 0, 0, 0.5);
+    color:  white;
+    padding: .5em;
+    cursor: pointer;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 100001;
+}
+
+.ui-layout-grids-guides-baseline {
+    &:extend(.ui-layout-grids-guide all);
+    background: rgba(0, 127, 255, 0.5);
+    z-index: 99998
+}
+
+.ui-layout-grids-guides-guide {
+    &:extend(.ui-layout-grids-guide all);
+    background: rgba(0, 255, 255, 0.5);
+    z-index: 99999;
+}
+
+.ui-layout-grids-guides-margin {
+    &:extend(.ui-layout-grids-guide all);
+    background: rgba(255, 0, 255, 0.5);
+    z-index: 100000;
+}
+
+.ui-layout-grids-guides-padding {
+    &:extend(.ui-layout-grids-guide all);
+    background: rgba(255, 127, 0, 0.5);
+    z-index: 100000;
+}
+
+.ui-layout-grids-guides-guide-horizontal {
+    &:extend(.ui-layout-grids-guide all);
+    left: 0;
+    height: 1px;
+    right: 0;
+}
+
+.ui-layout-grids-guides-guide-vertical {
+    &:extend(.ui-layout-grids-guide all);
+    bottom: 0;
+    top: 0;
+    width: 1px;
+}
+
+.ui-layout-grids-guides-guide {
+    &-margin-vertical {
+        &:extend(.ui-layout-grids-guides-margin, .ui-layout-grids-guides-guide-vertical);
+        position: fixed;
+    }
+
+    &-margin-horizontal {
+        &:extend(.ui-layout-grids-guides-margin, .ui-layout-grids-guides-guide-horizontal);
+        position: fixed;
+    }
+
+    &-column-vertical {
+        &:extend(.ui-layout-grids-guides-guide, .ui-layout-grids-guides-guide-vertical);
+        position: fixed;
+    }
+
+    &-column-horizontal {
+        &:extend(.ui-layout-grids-guides-guide, .ui-layout-grids-guides-guide-horizontal);
+        position: fixed;
+    }
+
+    &-padding-vertical {
+        &:extend(.ui-layout-grids-guides-padding, .ui-layout-grids-guides-guide-vertical);
+        position: fixed;
+    }
+
+    &-padding-horizontal {
+        &:extend(.ui-layout-grids-guides-padding, .ui-layout-grids-guides-guide-horizontal);
+        position: fixed;
+    }
+
+    &-baseline,
+    &-baseline-half {
+        &:extend(.ui-layout-grids-guides-baseline, .ui-layout-grids-guides-guide-horizontal);
+    }
+
+    &-baseline-half {
+        opacity: 0.25;
+    }
+
+    &-col {
+        &-left,
+        &-right {
+            &:extend(.ui-layout-grids-guides-guide, .ui-layout-grids-guides-guide-vertical);
+        }
+    }
+}
