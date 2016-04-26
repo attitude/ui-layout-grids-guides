@@ -301,7 +301,7 @@
 
         addColumnsGrid(
             'column',
-            currentOptions.columns || 1,
+            currentOptions.columns > 1 && currentOptions.columns || 1,
             currentOptions.columnsGutter || 0,
             currentOptions.marginTop || 0,
             currentOptions.marginRight || 0,
@@ -311,12 +311,12 @@
 
         addColumnsGrid(
             'padding',
-            currentOptions.columns && currentOptions.columns > 2 && currentOptions.columns / 2 || 1,
-            currentOptions.columnsGutter && currentOptions.columnsPadding && currentOptions.columnsPadding * 2 + currentOptions.columnsGutter || 0,
+            currentOptions.columns > 1 && currentOptions.columns || 1,
+            currentOptions.columnsGutter >= 0 && currentOptions.columnsPadding >= 0 && currentOptions.columnsPadding * 2 + currentOptions.columnsGutter || 0,
             currentOptions.marginTop || 0,
-            currentOptions.marginRight && currentOptions.columnsPadding && currentOptions.marginRight + currentOptions.columnsPadding || 0,
+            currentOptions.marginRight >= 0 && currentOptions.columnsPadding >= 0 && currentOptions.marginRight + currentOptions.columnsPadding || 0,
             currentOptions.marginBottom || 0,
-            currentOptions.marginLeft && currentOptions.columnsPadding && currentOptions.marginLeft + currentOptions.columnsPadding || 0
+            currentOptions.marginLeft >= 0 && currentOptions.columnsPadding >= 0 && currentOptions.marginLeft + currentOptions.columnsPadding || 0
         );
 
         addColumn('margin', currentOptions.marginTop || 0, currentOptions.marginRight || 0, currentOptions.marginBottom || 0, currentOptions.marginLeft || 0);
