@@ -5,30 +5,33 @@ Super simple inDesign-like layout grids &amp; guides overlay on any page.
 Usage
 -----
 
-```js
+```html
+<div id="element-to-display-grids">
+    <!-- inner content -->
+</div>
+<!-- link the script -->
+<script src="ui-layout-grids-guides.min.js"></script>
 <script>
-  // Override default breakpoints
-  uiLayoutGridGuidesOptions = [{
-       minWidth: 0,
-       rules: {
-           marginLeft: 8,
-           marginRight: 8,
-           marginTop: 0,
-           marginBottom: 0,
-           baselineOffset: 16,
-           columns: 1,
-           columnsGutter: 8,
-           columnsPadding: 16
-       }
-   }, {
-       minWidth: 160,
-       rules: {
-           columns: 2
-       }
-   }];
-   // You can add as many breakpoints as needed
+(function (w) {
+    w.addEventListener('load', function () {
+        // Add element to display grids; overrides the default breakpoints
+        w.uiGrids.watch(document.getElementById('element-to-display-grids'), [{
+            minWidth: 0,
+            rules: {
+                marginLeft: 32,
+                marginRight: 32,
+                marginTop: 32,
+                marginBottom: 32,
+                baselineOffset: 16,
+                columns: 2,
+                columnsGutter: 32,
+                columnsPadding: 32
+            }
+        }]);
+        // You can add as many breakpoints as needed
+    });
+}(window));
 </script>
-<script src="ui-layout-grids-guides.js"></script>
 ```
 
 To display the grid hit combination of the keys, both together: `Cmd+;` on OS X or `Ctrl+;`.
