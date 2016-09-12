@@ -1,3 +1,4 @@
+// out: ui-layout-grids-guides.css
 .ui-layout-grids-guide
 {
     display: none;
@@ -13,7 +14,7 @@
     color:  white;
     padding: .5em;
     cursor: pointer;
-    position: fixed;
+    position: absolute;;
     top: 0px;
     right: 0px;
     z-index: 100001;
@@ -60,32 +61,32 @@
 .ui-layout-grids-guides-guide {
     &-margin-vertical {
         &:extend(.ui-layout-grids-guides-margin, .ui-layout-grids-guides-guide-vertical);
-        position: fixed;
+        position: absolute;
     }
 
     &-margin-horizontal {
         &:extend(.ui-layout-grids-guides-margin, .ui-layout-grids-guides-guide-horizontal);
-        position: fixed;
+        position: absolute;
     }
 
     &-column-vertical {
         &:extend(.ui-layout-grids-guides-guide, .ui-layout-grids-guides-guide-vertical);
-        position: fixed;
+        position: absolute;
     }
 
     &-column-horizontal {
         &:extend(.ui-layout-grids-guides-guide, .ui-layout-grids-guides-guide-horizontal);
-        position: fixed;
+        position: absolute;
     }
 
     &-padding-vertical {
         &:extend(.ui-layout-grids-guides-padding, .ui-layout-grids-guides-guide-vertical);
-        position: fixed;
+        position: absolute;
     }
 
     &-padding-horizontal {
         &:extend(.ui-layout-grids-guides-padding, .ui-layout-grids-guides-guide-horizontal);
-        position: fixed;
+        position: absolute;
     }
 
     &-baseline,

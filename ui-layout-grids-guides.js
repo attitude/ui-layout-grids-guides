@@ -11,11 +11,11 @@
 
             if (elementRects.length) {
                 elementRects = {
-                    bottom: parseInt(screenHeight - elementRects[0].bottom, 10),
+                    bottom: parseInt(screenHeight - element.offsetTop - elementRects[0].height, 10),
                     left:   parseInt(elementRects[0].left, 10),
                     height: parseInt(elementRects[0].height, 10),
                     right:  parseInt(screenWidth - elementRects[0].right, 10),
-                    top:    parseInt(elementRects[0].top, 10),
+                    top:    parseInt(element.offsetTop, 10),
                     width:  parseInt(elementRects[0].width, 10)
                 };
 
@@ -143,6 +143,7 @@
             gutter       = gutter >= 0 ? gutter : 0;
 
             width = elementRects.width - marginLeft - marginRight;
+            height = elementRects.height - marginTop - marginBottom;
 
             marginTop    = parseInt(marginTop + elementRects.top,  10);
             marginRight  = parseInt(marginRight + elementRects.right, 10);
@@ -154,6 +155,7 @@
             if (w.console) {
                 w.console.log({
                     elementRects: elementRects,
+                    height: height,
                     width: width,
                     colWidth: columnWidth,
                     columns: columns,
@@ -405,7 +407,8 @@
 
     w.uiGrids = {
         watch: function (el, options) {
-            if (!options || Object.prototype.toString.call(el) !== '[object HTMLDivElement]') {
+            if (!options || !el instanceof Element) {
+                if (w.console) { w.console.warn('Watch: Not an HTML Element', el)}
                 return;
             }
 
@@ -416,7 +419,8 @@
             }
         },
         unwatch: function (el) {
-            if (Object.prototype.toString.call(el) !== '[object HTMLDivElement]') {
+            if (!el instanceof Element) {
+                if (w.console) { w.console.warn('Unwatch: Not an HTML Element', el)}
                 return;
             }
 
